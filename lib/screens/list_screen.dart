@@ -5,6 +5,12 @@ class ListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: CircularProgressIndicator());
+    return Scaffold(
+      appBar: AppBar(title: Text('Wasteagram')),
+      body: Center(child: CircularProgressIndicator()),
+      floatingActionButton:
+          FloatingActionButton(child: Icon(Icons.camera_alt), onPressed: null),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+    );
   }
 }
