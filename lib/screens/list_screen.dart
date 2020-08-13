@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wasteagram/widgets/get_picture.dart';
 
 class ListScreen extends StatelessWidget {
   static const routeName = '/';
@@ -8,8 +9,7 @@ class ListScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text('Wasteagram')),
       body: Center(child: CircularProgressIndicator()),
-      floatingActionButton:
-          FloatingActionButton(child: Icon(Icons.camera_alt), onPressed: null),
+      floatingActionButton: GetPicture(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
