@@ -30,6 +30,7 @@ class PostInfo {
     this.dateRaw = DateTime.now().toString();
   }
 
+  // ignore: non_constant_identifier_names
   setPhotoURL(URL) {
     this.photoURL = URL;
   }
