@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'screens/detail_screen.dart';
 import 'screens/new_post.dart';
 import 'screens/list_screen.dart';
 
@@ -6,7 +7,8 @@ class App extends StatelessWidget {
   final String title;
   static final routes = {
     ListScreen.routeName: (context) => ListScreen(),
-    NewPost.routeName: (context) => NewPost()
+    NewPost.routeName: (context) => NewPost(),
+    DetailScreen.routeName: (context) => DetailScreen()
   };
 
   const App({Key key, this.title}) : super(key: key);

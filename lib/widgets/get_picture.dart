@@ -21,7 +21,7 @@ class _GetPictureState extends State<GetPicture> {
       if (pickedPicture == null) {
         return;
       } else {
-        _picture = FileImage(File(pickedPicture.path));
+        _picture = File(pickedPicture.path);
         Navigator.pushNamed(context, NewPost.routeName, arguments: _picture);
       }
     });
@@ -35,7 +35,7 @@ class _GetPictureState extends State<GetPicture> {
       if (pickedPicture == null) {
         return;
       } else {
-        _picture = FileImage(File(pickedPicture.path));
+        _picture = File(pickedPicture.path);
         Navigator.pushNamed(context, NewPost.routeName, arguments: _picture);
       }
     });
@@ -49,12 +49,25 @@ class _GetPictureState extends State<GetPicture> {
             child: Wrap(
               children: [
                 ListTile(
-                  title: Text('Use Camera'),
-                  onTap: () => {getPicCamera()},
+                  title: Text('Choose where to get your image:'),
                 ),
-                ListTile(
-                  title: Text('Use Gallery'),
-                  onTap: () => {getPicGallery()},
+                Semantics(
+                  button: true,
+                  onTapHint: 'Use Camera',
+                  child: ListTile(
+                    leading: Icon(Icons.camera_alt),
+                    title: Text('Camera'),
+                    onTap: () => {getPicCamera()},
+                  ),
+                ),
+                Semantics(
+                  button: true,
+                  onTapHint: "Use Gallery",
+                  child: ListTile(
+                    leading: Icon(Icons.image),
+                    title: Text('Gallery'),
+                    onTap: () => {getPicGallery()},
+                  ),
                 )
               ],
             ),
@@ -65,7 +78,11 @@ class _GetPictureState extends State<GetPicture> {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
-        child: Icon(Icons.camera_alt),
+        child: Semantics(
+          button: true,
+          onTapHint: 'Pick a Photo',
+          child: Icon(Icons.camera_alt),
+        ),
         onPressed: () {
           showPictureOptions(context);
         });
